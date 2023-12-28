@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, {css} from 'styled-components';
+import styled from 'styled-components';
 
 const Main = () => {
     return (
@@ -52,7 +52,7 @@ const MainStyle = styled.div`
         width: 120px;
         height: 40px;
         background-color: #818DA5;
-        color: #CDD0E5;
+        color: #FFFFFF;
     }
     td{
         height: 40px;

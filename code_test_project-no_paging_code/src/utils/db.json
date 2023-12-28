@@ -1,0 +1,904 @@
+{
+  "articles": [
+    {
+      "mailUid": 1,
+      "mailType": "Notification",
+      "mailTitle": "Welcome Message",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-01T12:00:00Z",
+      "mailContent": "Dear [Username],\n\nWelcome to our platform! We are excited to have you on board.",
+      "reason": "User Registration"
+    },
+    {
+      "mailUid": 2,
+      "mailType": "Marketing",
+      "mailTitle": "Special Offer",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-02T14:30:00Z",
+      "mailContent": "Hello [Username],\n\nDon't miss our special offer! Shop now and get 20% off on selected items.",
+      "reason": "Promotion"
+    },
+    {
+      "mailUid": 3,
+      "mailType": "Notification",
+      "mailTitle": "Account Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-03T09:45:00Z",
+      "mailContent": "Dear [Username],\n\nYour account information has been updated successfully.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 4,
+      "mailType": "Notification",
+      "mailTitle": "New Feature Announcement",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-04T15:20:00Z",
+      "mailContent": "Hello [Username],\n\nWe're excited to announce a new feature! Check it out now.",
+      "reason": "Product Update"
+    },
+    {
+      "mailUid": 5,
+      "mailType": "Marketing",
+      "mailTitle": "Flash Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-05T10:30:00Z",
+      "mailContent": "Hi [Username],\n\nHurry up! Our flash sale is happening now. Grab the best deals before they're gone.",
+      "reason": "Limited-Time Offer"
+    },
+    {
+      "mailUid": 6,
+      "mailType": "Notification",
+      "mailTitle": "Important Notice",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-06T08:15:00Z",
+      "mailContent": "Dear [Username],\n\nThis is an important notice regarding your account. Please review the details.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 7,
+      "mailType": "Marketing",
+      "mailTitle": "Holiday Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-07T13:45:00Z",
+      "mailContent": "Hello [Username],\n\nCelebrate the holidays with our special sale. Get festive discounts on your favorite items.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 8,
+      "mailType": "Notification",
+      "mailTitle": "System Maintenance",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-08T11:00:00Z",
+      "mailContent": "Dear [Username],\n\nWe will be performing scheduled maintenance on our system. Please be advised of possible downtime.",
+      "reason": "Service Announcement"
+    },
+    {
+      "mailUid": 9,
+      "mailType": "Notification",
+      "mailTitle": "Feedback Request",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-09T17:30:00Z",
+      "mailContent": "Hi [Username],\n\nWe value your feedback! Please take a moment to share your thoughts and suggestions.",
+      "reason": "Customer Engagement"
+    },
+    {
+      "mailUid": 10,
+      "mailType": "Marketing",
+      "mailTitle": "New Collection Launch",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-10T16:10:00Z",
+      "mailContent": "Hello [Username],\n\nExplore our latest collection and discover trendy styles for the season.",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 11,
+      "mailType": "Notification",
+      "mailTitle": "Payment Confirmation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-11T14:50:00Z",
+      "mailContent": "Dear [Username],\n\nYour recent payment has been successfully confirmed. Thank you for your purchase!",
+      "reason": "Transaction Update"
+    },
+    {
+      "mailUid": 12,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Sale Preview",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-12T12:25:00Z",
+      "mailContent": "Hi [Username],\n\nGet ready for our upcoming summer sale. Preview the exclusive deals before everyone else!",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 13,
+      "mailType": "Notification",
+      "mailTitle": "Account Verification",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-13T09:00:00Z",
+      "mailContent": "Dear [Username],\n\nTo enhance security, please verify your account by following the provided link.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 14,
+      "mailType": "Marketing",
+      "mailTitle": "Back-to-School Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-14T08:30:00Z",
+      "mailContent": "Hello [Username],\n\nGear up for the new school year with our back-to-school sale. Shop now and save big!",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 15,
+      "mailType": "Notification",
+      "mailTitle": "Password Reset",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-15T16:40:00Z",
+      "mailContent": "Dear [Username],\n\nYou've requested a password reset. Click the link to create a new password for your account.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 16,
+      "mailType": "Marketing",
+      "mailTitle": "Tech Gadgets Expo",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-16T11:20:00Z",
+      "mailContent": "Hi [Username],\n\nExplore the latest tech gadgets at our expo. Don't miss out on exciting new releases!",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 17,
+      "mailType": "Notification",
+      "mailTitle": "Account Deactivation Notice",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-17T13:15:00Z",
+      "mailContent": "Dear [Username],\n\nYour account is scheduled for deactivation. If you wish to keep it active, please contact support.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 18,
+      "mailType": "Marketing",
+      "mailTitle": "Winter Fashion Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-18T14:55:00Z",
+      "mailContent": "Hello [Username],\n\nStay warm and stylish with our winter fashion sale. Discover cozy and trendy outfits.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 19,
+      "mailType": "Notification",
+      "mailTitle": "Survey Invitation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-19T10:10:00Z",
+      "mailContent": "Hi [Username],\n\nWe value your opinion! Participate in our survey and stand a chance to win exciting prizes.",
+      "reason": "Customer Engagement"
+    },
+    {
+      "mailUid": 20,
+      "mailType": "Marketing",
+      "mailTitle": "Spring Clearance",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-01-20T12:45:00Z",
+      "mailContent": "Hello [Username],\n\nSpring is here, and so are our clearance deals. Shop now and enjoy great discounts!",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 21,
+      "mailType": "Notification",
+      "mailTitle": "New Feature Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-01T08:00:00Z",
+      "mailContent": "Hi [Username],\n\nExplore the latest features in our platform. Stay tuned for enhanced user experience.",
+      "reason": "Product Update"
+    },
+    {
+      "mailUid": 22,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Vacation Deals",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-02T11:30:00Z",
+      "mailContent": "Hello [Username],\n\nPlan your summer getaway with our exclusive vacation deals. Save on flights, hotels, and more.",
+      "reason": "Travel Promotion"
+    },
+    {
+      "mailUid": 23,
+      "mailType": "Notification",
+      "mailTitle": "Security Alert",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-03T15:15:00Z",
+      "mailContent": "Dear [Username],\n\nA security alert has been detected on your account. Please review your account activity.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 24,
+      "mailType": "Notification",
+      "mailTitle": "Product Tutorial",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-04T09:20:00Z",
+      "mailContent": "Hello [Username],\n\nLearn how to make the most of our products with our step-by-step tutorial. Get started now!",
+      "reason": "User Education"
+    },
+    {
+      "mailUid": 25,
+      "mailType": "Marketing",
+      "mailTitle": "Valentine's Day Special",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-05T12:45:00Z",
+      "mailContent": "Hi [Username],\n\nCelebrate love with our Valentine's Day special. Discover thoughtful gifts for your loved ones.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 26,
+      "mailType": "Notification",
+      "mailTitle": "Account Recovery",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-06T18:30:00Z",
+      "mailContent": "Dear [Username],\n\nIf you've forgotten your account details, follow the steps to recover your account.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 27,
+      "mailType": "Marketing",
+      "mailTitle": "Spring Fashion Launch",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-07T14:00:00Z",
+      "mailContent": "Hello [Username],\n\nStay in style with our latest spring fashion collection. Explore trendy outfits for the season.",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 28,
+      "mailType": "Notification",
+      "mailTitle": "Account Suspension",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-08T10:10:00Z",
+      "mailContent": "Dear [Username],\n\nYour account is temporarily suspended. Please contact support for further assistance.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 29,
+      "mailType": "Notification",
+      "mailTitle": "System Upgrade",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-09T09:30:00Z",
+      "mailContent": "Hi [Username],\n\nWe're upgrading our system to provide you with better service. Expect improved performance.",
+      "reason": "Service Announcement"
+    },
+    {
+      "mailUid": 30,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Adventure Essentials",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-10T16:20:00Z",
+      "mailContent": "Hello [Username],\n\nGear up for summer adventures with our essential outdoor gear. Shop now and explore the great outdoors.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 31,
+      "mailType": "Notification",
+      "mailTitle": "Account Reactivation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-11T11:45:00Z",
+      "mailContent": "Dear [Username],\n\nGood news! Your account has been reactivated. Continue enjoying our services.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 32,
+      "mailType": "Marketing",
+      "mailTitle": "Tech Expo Highlights",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-12T12:10:00Z",
+      "mailContent": "Hi [Username],\n\nMissed our tech expo? Check out the highlights and discover the latest innovations in technology.",
+      "reason": "Event Recap"
+    },
+    {
+      "mailUid": 33,
+      "mailType": "Notification",
+      "mailTitle": "Product Recall Notice",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-13T13:55:00Z",
+      "mailContent": "Dear [Username],\n\nA product recall has been issued. Please review the details and take necessary actions.",
+      "reason": "Product Safety"
+    },
+    {
+      "mailUid": 34,
+      "mailType": "Marketing",
+      "mailTitle": "Fall Fashion Sneak Peek",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-14T09:30:00Z",
+      "mailContent": "Hello [Username],\n\nGet an exclusive sneak peek at our upcoming fall fashion collection. Stay stylish all season.",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 35,
+      "mailType": "Notification",
+      "mailTitle": "Account Termination",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-15T14:25:00Z",
+      "mailContent": "Dear [Username],\n\nUnfortunately, your account has been terminated. Contact support for more information.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 36,
+      "mailType": "Notification",
+      "mailTitle": "Data Breach Alert",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-16T10:50:00Z",
+      "mailContent": "Hi [Username],\n\nWe have detected a data breach. Take immediate steps to secure your account.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 37,
+      "mailType": "Marketing",
+      "mailTitle": "Holiday Travel Deals",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-17T16:15:00Z",
+      "mailContent": "Hello [Username],\n\nPlan your holiday travels with our exclusive deals on flights, hotels, and vacation packages.",
+      "reason": "Travel Promotion"
+    },
+    {
+      "mailUid": 38,
+      "mailType": "Notification",
+      "mailTitle": "Account Closure Confirmation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-18T11:40:00Z",
+      "mailContent": "Dear [Username],\n\nYour account closure request has been processed. We appreciate your time with us.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 39,
+      "mailType": "Marketing",
+      "mailTitle": "Winter Wonderland Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-19T14:50:00Z",
+      "mailContent": "Hi [Username],\n\nEmbrace the winter season with our special sale. Discover cozy essentials for your home.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 40,
+      "mailType": "Notification",
+      "mailTitle": "Account Password Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-02-20T10:05:00Z",
+      "mailContent": "Hello [Username],\n\nYour account password has been updated. Keep your account secure with regular password changes.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 41,
+      "mailType": "Notification",
+      "mailTitle": "New App Version Available",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-01T09:30:00Z",
+      "mailContent": "Hi [Username],\n\nUpgrade to the latest version of our app for new features and improved performance.",
+      "reason": "Product Update"
+    },
+    {
+      "mailUid": 42,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Fitness Challenge",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-02T13:45:00Z",
+      "mailContent": "Hello [Username],\n\nJoin our summer fitness challenge and stay active with exciting workouts and rewards.",
+      "reason": "Health Promotion"
+    },
+    {
+      "mailUid": 43,
+      "mailType": "Notification",
+      "mailTitle": "Unauthorized Access Alert",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-03T11:20:00Z",
+      "mailContent": "Dear [Username],\n\nWe detected unauthorized access to your account. Secure it by changing your password.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 44,
+      "mailType": "Notification",
+      "mailTitle": "Product Maintenance",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-04T16:10:00Z",
+      "mailContent": "Hi [Username],\n\nWe'll be conducting maintenance on some products. Expect temporary unavailability.",
+      "reason": "Service Announcement"
+    },
+    {
+      "mailUid": 45,
+      "mailType": "Marketing",
+      "mailTitle": "Spring Home Decor Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-05T12:00:00Z",
+      "mailContent": "Hello [Username],\n\nRefresh your home for spring with our exclusive decor items. Shop now and save.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 46,
+      "mailType": "Notification",
+      "mailTitle": "Password Expiry Notice",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-06T09:55:00Z",
+      "mailContent": "Dear [Username],\n\nYour password is expiring soon. Change it now to ensure account security.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 47,
+      "mailType": "Marketing",
+      "mailTitle": "Backyard Barbecue Essentials",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-07T14:30:00Z",
+      "mailContent": "Hi [Username],\n\nGet ready for summer barbecues with our essential grilling tools and accessories.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 48,
+      "mailType": "Notification",
+      "mailTitle": "Account Login History",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-08T10:25:00Z",
+      "mailContent": "Dear [Username],\n\nReview your account login history for security purposes. Ensure no unauthorized access.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 49,
+      "mailType": "Notification",
+      "mailTitle": "Product Recall Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-09T15:15:00Z",
+      "mailContent": "Hello [Username],\n\nAn update on the product recall. Please follow the provided instructions for your safety.",
+      "reason": "Product Safety"
+    },
+    {
+      "mailUid": 50,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Travel Packages",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-10T11:40:00Z",
+      "mailContent": "Hi [Username],\n\nDiscover our exclusive summer travel packages. Plan your perfect getaway now.",
+      "reason": "Travel Promotion"
+    },
+    {
+      "mailUid": 51,
+      "mailType": "Notification",
+      "mailTitle": "Account Review Request",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-11T09:00:00Z",
+      "mailContent": "Dear [Username],\n\nHelp us improve our services by participating in our account review. Share your feedback!",
+      "reason": "Customer Engagement"
+    },
+    {
+      "mailUid": 52,
+      "mailType": "Marketing",
+      "mailTitle": "Fall Fashion Trends",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-12T14:50:00Z",
+      "mailContent": "Hello [Username],\n\nExplore the latest fall fashion trends and update your wardrobe with stylish essentials.",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 53,
+      "mailType": "Notification",
+      "mailTitle": "Account Password Reset",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-13T10:15:00Z",
+      "mailContent": "Dear [Username],\n\nForgot your password? Reset it now to regain access to your account.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 54,
+      "mailType": "Marketing",
+      "mailTitle": "Holiday Tech Deals",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-14T15:00:00Z",
+      "mailContent": "Hi [Username],\n\nDon't miss out on our holiday tech deals. Upgrade your gadgets at unbeatable prices.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 55,
+      "mailType": "Notification",
+      "mailTitle": "Account Data Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-15T11:35:00Z",
+      "mailContent": "Dear [Username],\n\nEnsure your account information is up-to-date. Review and update your details now.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 56,
+      "mailType": "Notification",
+      "mailTitle": "System Outage Alert",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-16T17:20:00Z",
+      "mailContent": "Hi [Username],\n\nWe're experiencing a temporary system outage. We apologize for any inconvenience.",
+      "reason": "Service Announcement"
+    },
+    {
+      "mailUid": 57,
+      "mailType": "Marketing",
+      "mailTitle": "Spring Cleaning Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-17T12:10:00Z",
+      "mailContent": "Hello [Username],\n\nRefresh your space with our spring cleaning sale. Enjoy discounts on cleaning essentials.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 58,
+      "mailType": "Notification",
+      "mailTitle": "Account Login Confirmation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-18T08:45:00Z",
+      "mailContent": "Dear [Username],\n\nConfirm your recent account login. If unauthorized, take immediate action for security.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 59,
+      "mailType": "Notification",
+      "mailTitle": "Account Balance Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-19T14:40:00Z",
+      "mailContent": "Hi [Username],\n\nCheck your account balance for the latest updates on your financial transactions.",
+      "reason": "Transaction Update"
+    },
+    {
+      "mailUid": 60,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Movie Night Essentials",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-03-20T09:25:00Z",
+      "mailContent": "Hello [Username],\n\nHost the perfect summer movie night with our essentials. Get ready for a cinematic experience.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 61,
+      "mailType": "Notification",
+      "mailTitle": "Account Activity Review",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-01T08:30:00Z",
+      "mailContent": "Dear [Username],\n\nIt's time to review your account activity. Ensure all transactions are legitimate.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 62,
+      "mailType": "Marketing",
+      "mailTitle": "Spring Outdoor Gear Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-02T12:45:00Z",
+      "mailContent": "Hello [Username],\n\nGear up for outdoor adventures with our spring gear sale. Save on camping, hiking, and more.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 63,
+      "mailType": "Notification",
+      "mailTitle": "Product Warranty Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-03T10:20:00Z",
+      "mailContent": "Hi [Username],\n\nCheck the status of your product warranties. Ensure your items are covered for peace of mind.",
+      "reason": "Product Support"
+    },
+    {
+      "mailUid": 64,
+      "mailType": "Notification",
+      "mailTitle": "Account Profile Completion",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-04T15:10:00Z",
+      "mailContent": "Dear [Username],\n\nComplete your account profile for a personalized experience. Add missing details now.",
+      "reason": "User Engagement"
+    },
+    {
+      "mailUid": 65,
+      "mailType": "Marketing",
+      "mailTitle": "Easter Specials",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-05T11:00:00Z",
+      "mailContent": "Hi [Username],\n\nCelebrate Easter with our special offers. Discover festive deals on your favorite products.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 66,
+      "mailType": "Notification",
+      "mailTitle": "Security Checkup Reminder",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-06T09:55:00Z",
+      "mailContent": "Dear [Username],\n\nSchedule a security checkup to ensure the safety of your account. Take proactive steps today.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 67,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Reading List",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-07T14:40:00Z",
+      "mailContent": "Hello [Username],\n\nExplore our summer reading list for book enthusiasts. Find your next captivating read.",
+      "reason": "Book Promotion"
+    },
+    {
+      "mailUid": 68,
+      "mailType": "Notification",
+      "mailTitle": "Account Suspension Notice",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-08T10:35:00Z",
+      "mailContent": "Dear [Username],\n\nYour account is under suspension. Contact support to resolve the issue and regain access.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 69,
+      "mailType": "Notification",
+      "mailTitle": "System Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-09T15:25:00Z",
+      "mailContent": "Hi [Username],\n\nWe're updating our system to enhance performance and introduce new features. Stay tuned!",
+      "reason": "Service Announcement"
+    },
+    {
+      "mailUid": 70,
+      "mailType": "Marketing",
+      "mailTitle": "Father's Day Gift Ideas",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-10T11:10:00Z",
+      "mailContent": "Hello [Username],\n\nFind the perfect Father's Day gift with our curated selection of thoughtful and unique ideas.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 71,
+      "mailType": "Notification",
+      "mailTitle": "Account Verification Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-11T09:05:00Z",
+      "mailContent": "Dear [Username],\n\nUpdate your account verification settings for added security. Review and make changes as needed.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 72,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Wellness Essentials",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-12T14:50:00Z",
+      "mailContent": "Hi [Username],\n\nPrioritize your well-being with our summer wellness essentials. Discover products for a healthy lifestyle.",
+      "reason": "Health Promotion"
+    },
+    {
+      "mailUid": 73,
+      "mailType": "Notification",
+      "mailTitle": "Account Reactivation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-13T10:15:00Z",
+      "mailContent": "Dear [Username],\n\nGreat news! Your account has been reactivated. Continue enjoying our services.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 74,
+      "mailType": "Notification",
+      "mailTitle": "Product Demo Invitation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-14T15:00:00Z",
+      "mailContent": "Hi [Username],\n\nJoin us for an exclusive product demo. Get a firsthand look at our latest innovations.",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 75,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Beauty Collection",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-15T11:35:00Z",
+      "mailContent": "Hello [Username],\n\nIndulge in our summer beauty collection. Explore a range of skincare and makeup essentials.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 76,
+      "mailType": "Notification",
+      "mailTitle": "Account Data Breach Alert",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-16T17:20:00Z",
+      "mailContent": "Dear [Username],\n\nWe've detected a data breach. Take immediate steps to secure your account.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 77,
+      "mailType": "Marketing",
+      "mailTitle": "Holiday Travel Deals",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-17T12:10:00Z",
+      "mailContent": "Hello [Username],\n\nPlan your holiday travels with our exclusive deals on flights, hotels, and vacation packages.",
+      "reason": "Travel Promotion"
+    },
+    {
+      "mailUid": 78,
+      "mailType": "Notification",
+      "mailTitle": "Account Closure Confirmation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-18T08:45:00Z",
+      "mailContent": "Dear [Username],\n\nYour account closure request has been processed. We appreciate your time with us.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 79,
+      "mailType": "Marketing",
+      "mailTitle": "Winter Wonderland Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-19T14:50:00Z",
+      "mailContent": "Hi [Username],\n\nEmbrace the winter season with our special sale. Discover cozy essentials for your home.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 80,
+      "mailType": "Notification",
+      "mailTitle": "Account Password Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-04-20T10:05:00Z",
+      "mailContent": "Hello [Username],\n\nYour account password has been updated. Keep your account secure with regular password changes.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 81,
+      "mailType": "Notification",
+      "mailTitle": "Account Recovery Steps",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-01T09:30:00Z",
+      "mailContent": "Dear [Username],\n\nFollow these steps to recover your account. Regain access and secure your information.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 82,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Outdoor Adventure Gear",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-02T13:45:00Z",
+      "mailContent": "Hello [Username],\n\nGear up for summer adventures with our outdoor essentials. Explore and save on top brands.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 83,
+      "mailType": "Notification",
+      "mailTitle": "Product Recall Notice",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-03T11:20:00Z",
+      "mailContent": "Hi [Username],\n\nImportant recall notice for certain products. Please review and take appropriate action.",
+      "reason": "Product Safety"
+    },
+    {
+      "mailUid": 84,
+      "mailType": "Notification",
+      "mailTitle": "Account Privacy Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-04T16:10:00Z",
+      "mailContent": "Dear [Username],\n\nReview and update your account privacy settings for enhanced security and control.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 85,
+      "mailType": "Marketing",
+      "mailTitle": "Spring Tech Gadgets Expo",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-05T12:00:00Z",
+      "mailContent": "Hello [Username],\n\nDiscover the latest tech innovations at our spring expo. Don't miss out on exclusive showcases.",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 86,
+      "mailType": "Notification",
+      "mailTitle": "Account Security Check",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-06T09:55:00Z",
+      "mailContent": "Dear [Username],\n\nPerform a security check on your account. Ensure your information is safe from unauthorized access.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 87,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Home Decor Trends",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-07T14:40:00Z",
+      "mailContent": "Hello [Username],\n\nRefresh your home with the latest summer decor trends. Explore and transform your space.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 88,
+      "mailType": "Notification",
+      "mailTitle": "Account Termination Warning",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-08T10:35:00Z",
+      "mailContent": "Dear [Username],\n\nYour account is at risk of termination. Take immediate action to prevent closure.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 89,
+      "mailType": "Notification",
+      "mailTitle": "System Maintenance Update",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-09T15:25:00Z",
+      "mailContent": "Hi [Username],\n\nOur system maintenance is complete. Thank you for your patience during the process.",
+      "reason": "Service Announcement"
+    },
+    {
+      "mailUid": 90,
+      "mailType": "Marketing",
+      "mailTitle": "Mother's Day Gift Guide",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-10T11:10:00Z",
+      "mailContent": "Hello [Username],\n\nFind the perfect Mother's Day gift with our curated guide. Show your appreciation with thoughtful presents.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 91,
+      "mailType": "Notification",
+      "mailTitle": "Account Security Upgrade",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-11T09:05:00Z",
+      "mailContent": "Dear [Username],\n\nUpgrade your account security with our latest features. Take control and stay protected.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 92,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Fitness Challenge",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-12T14:50:00Z",
+      "mailContent": "Hi [Username],\n\nJoin our summer fitness challenge for a fun and healthy way to stay active. Exciting rewards await!",
+      "reason": "Health Promotion"
+    },
+    {
+      "mailUid": 93,
+      "mailType": "Notification",
+      "mailTitle": "Account Reactivation Confirmation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-13T10:15:00Z",
+      "mailContent": "Dear [Username],\n\nYour account has been successfully reactivated. Continue enjoying our services.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 94,
+      "mailType": "Notification",
+      "mailTitle": "Exclusive Product Preview",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-14T15:00:00Z",
+      "mailContent": "Hi [Username],\n\nGet an exclusive preview of our upcoming product. Be the first to experience innovation.",
+      "reason": "Product Showcase"
+    },
+    {
+      "mailUid": 95,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Fashion Trends",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-15T11:35:00Z",
+      "mailContent": "Hello [Username],\n\nExplore the latest summer fashion trends. Elevate your style with seasonal must-haves.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 96,
+      "mailType": "Notification",
+      "mailTitle": "Account Data Security Alert",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-16T17:20:00Z",
+      "mailContent": "Dear [Username],\n\nWe've detected unusual account activity. Secure your data with immediate action.",
+      "reason": "Account Security"
+    },
+    {
+      "mailUid": 97,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Travel Essentials",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-17T12:10:00Z",
+      "mailContent": "Hello [Username],\n\nPrepare for summer adventures with our travel essentials. Pack smart for a memorable journey.",
+      "reason": "Travel Promotion"
+    },
+    {
+      "mailUid": 98,
+      "mailType": "Notification",
+      "mailTitle": "Account Closure Request Confirmation",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-18T08:45:00Z",
+      "mailContent": "Dear [Username],\n\nYour request to close your account has been received. We appreciate your time with us.",
+      "reason": "Account Management"
+    },
+    {
+      "mailUid": 99,
+      "mailType": "Marketing",
+      "mailTitle": "Summer Home Entertainment Sale",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-19T14:50:00Z",
+      "mailContent": "Hi [Username],\n\nUpgrade your home entertainment for summer nights. Explore deals on TVs, speakers, and more.",
+      "reason": "Seasonal Promotion"
+    },
+    {
+      "mailUid": 100,
+      "mailType": "Notification",
+      "mailTitle": "Account Password Reset",
+      "ismailIUse": "Y",
+      "modificationDate": "2023-05-20T10:05:00Z",
+      "mailContent": "Hello [Username],\n\nYou've requested a password reset. Follow the link to create a new secure password for your account.",
+      "reason": "Account Security"
+    }
+  ]
+}

@@ -7,7 +7,7 @@ import { DataContext } from '../../utils/contextApi';
 const Top = () => {
 
     const context = useContext(DataContext);
-    const {clicked, setClicked} = context;
+    const {clicked, setClicked, clickAdd} = context;
 
     const onClickMinBtn = () => {
         setClicked(!clicked);
@@ -15,7 +15,7 @@ const Top = () => {
 
     return (
         <TopStyle>
-            컨텐츠 설정
+            {clickAdd ? "컨텐츠 등록" : "컨텐츠 설정"}
             <MinBtn onClick={onClickMinBtn}>-</ MinBtn>
         </TopStyle>
     );

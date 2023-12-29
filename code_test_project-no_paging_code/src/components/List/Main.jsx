@@ -11,7 +11,7 @@ const mockApi = new MockApi();
 const Main = () => {
 
     const context = useContext(DataContext);
-    const {setClicked, setClickedData, setSettingClose, listClose, clicked} = context;
+    const {setClicked, setClickedData, setSettingClose, listClose, clickAdd, setClickAdd, updateData} = context;
 
     const [jsonData, setJsonData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
@@ -19,10 +19,9 @@ const Main = () => {
     const [selectAll, setSelectAll] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
 
-
     useEffect(() => {
         fetchData();
-    }, [currentPage, pageItems]);
+    }, [currentPage, pageItems, updateData]);
 
     const fetchData = async () => {
         try {
@@ -62,7 +61,24 @@ const Main = () => {
     const onClickData = (e) => {
         setClickedData(jsonData[e - 1]);
         setClicked(false);
+        setClickAdd(false);
         setSettingClose(true);
+    }
+
+    const onClickAdd = () => {
+        setClickedData({});
+        setClicked(false);
+        setClickAdd(true);
+        setSettingClose(true);
+    }
+
+    const onClickDel = async() => {
+        try{
+            const rsp = await mockApi.delete({mailUidList:selectedItems});
+            console.log(rsp);
+        } catch (error) {
+            console.error(error);
+        }
 
     }
       
@@ -95,8 +111,8 @@ const Main = () => {
                     <div>등록된 전체 메일 유형입니다.</div>
                 </div>
                 <div>
-                    <NormalBtn onClick={()=>console.log("등록 버튼 클릭!")}>등록</NormalBtn>
-                    <NormalBtn>삭제</NormalBtn>
+                    <NormalBtn onClick={onClickAdd}>등록</NormalBtn>
+                    <NormalBtn onClick={onClickDel}>삭제</NormalBtn>
                 </div>
             </Desc>
             <TableStyle>
@@ -150,7 +166,7 @@ const Main = () => {
                 </select>
             </div>
             <div className='bot-right'>
-                보기 {pageItems*currentPage-(pageItems-1)}-{pageItems*currentPage} / {jsonData.length}
+                보기 {pageItems*currentPage-(pageItems-1)}-{currentPage === totalPages ? jsonData.length : pageItems*currentPage} / {jsonData.length}
             </div>
         </Bottom>
         </div>
@@ -283,6 +299,7 @@ const Bottom = styled.div`
     }
 
     .bot-right{
-        width: 100px;
+        display: flex;
+        flex-direction: row-reverse;
     }
 `;

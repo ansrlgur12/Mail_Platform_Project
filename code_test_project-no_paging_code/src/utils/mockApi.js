@@ -86,7 +86,7 @@ class MockApi {
                 mailTitle: mailTitle || this.#db.articles[dtoIndex].mailTitle,
                 ismailIUse: ismailIUse || this.#db.articles[dtoIndex].ismailIUse,
                 mailContent: mailContent || this.#db.articles[dtoIndex].mailContent,
-                modificationDate: this.#getLocalDate,
+                modificationDate: this.#getLocalDate(),
                 reason: reason
             }
 
@@ -94,6 +94,7 @@ class MockApi {
             this.#db.articles.splice(dtoIndex, 1, tempDto);
 
             this.#setResultSuccess(result);
+            console.log("수정 성공")
         } catch (error) {
             console.error(error);
             this.#setResultFail(result);
@@ -190,13 +191,16 @@ class MockApi {
             mailTitle: mailTitle,
             ismailIUse: ismailIUse,
             mailContent: mailContent,
-            modificationDate: this.#getLocalDate,
+            modificationDate: this.#getLocalDate(),
             reason: reason,
         }
 
         try {
             this.#db.articles.push(tempDto);
             this.#setResultSuccess(result);
+            console.log(tempDto.modificationDate);
+            console.log("성공")
+            console.log(this.#db.articles.length);
         } catch (error) {
             console.error(error)
             this.#setResultFail(result);
@@ -219,6 +223,7 @@ class MockApi {
 
     #getLocalDate() {
         const currentDate = new Date();
+        console.log(currentDate);
         const year = currentDate.getFullYear();
         const month = currentDate.getMonth() + 1;
         const day = currentDate.getDate();

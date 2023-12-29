@@ -5,14 +5,18 @@ import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faNoteSticky } from "@fortawesome/free-regular-svg-icons";
+import MockApi from '../../utils/mockApi';
+
+const mockApi = new MockApi();
 
 const Main = () => {
 
     const context = useContext(DataContext);
-    const {clicked, clickedData, setSettingClose, setClicked, setClickedData} = context;
+    const {clicked, clickedData, setSettingClose, setClicked, setClickedData, clickAdd, setUpdateData} = context;
 
     
     const [mailContent, setMailContent] = useState("");
+    const [id, setId] = useState("");
     const [title, setTitle] = useState(""); 
     const [reason, setReason] = useState(""); 
     const [mailType, setMailType] = useState("");
@@ -22,12 +26,13 @@ const Main = () => {
 
 
     useEffect(()=>{
-        
+        setId(clickedData.mailUid);
         setMailContent(clickedData.mailContent);
         setTitle(clickedData.mailTitle);
         setReason(clickedData.reason);
         setMailType(clickedData.mailType);
         setMailUse(clickedData.ismailIUse);
+        
     },[clickedData])
 
     const onChangeTitle = (e) => {
@@ -56,6 +61,43 @@ const Main = () => {
         setSettingClose(false);
         setClicked(false);
         setClickedData({});
+    }
+
+    const onClickSave = async() => {
+
+        if(clickAdd){
+            try{
+                const rsp = await mockApi.post({
+                    mailType: mailType,
+                    mailTitle: title,
+                    ismailIUse: mailUse,
+                    mailContent: parsedContent,
+                    reason: reason
+                });
+                setUpdateData(rsp.data.article);
+
+            } catch (error) {
+                console.error(error);
+            }
+            
+        }
+        else{
+            try{
+                const rsp = await mockApi.put({
+                    mailUid: id,
+                    mailType: mailType,
+                    mailTitle: title,
+                    ismailIUse: mailUse,
+                    mailContent: parsedContent,
+                    reason: reason
+                });
+                setUpdateData(rsp.data.article);
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+        
     }
 
     
@@ -87,7 +129,7 @@ const Main = () => {
                         <Container>
                             <CKEditor
                                 editor={ ClassicEditor }
-                                data={mailContent}
+                                data={mailContent ? mailContent : ""}
                                 
                                 onChange={ ( event, editor ) => {
                                     const editorContent = editor.getData();
@@ -102,7 +144,7 @@ const Main = () => {
                 </tr>
                 <tr>
                     <th>변경 사유</th>
-                    <td colspan="3"><input className='input' type="text" onChange={onChangeReason} placeholder='argument 변경시 에러가 발생하오니 주의하시기 바랍니다.'/></td>
+                    <td colspan="3"><input className='input' type="text" value={reason} onChange={onChangeReason} placeholder='argument 변경시 에러가 발생하오니 주의하시기 바랍니다.'/></td>
                 </tr>
                 
             </table>
@@ -111,7 +153,7 @@ const Main = () => {
             </Preview>
             <BtnArea>
                 <button className='close' onClick={onClickSettingClose}>창닫기</button>
-                <button>저장</button>
+                <button onClick={onClickSave}>저장</button>
             </BtnArea>
         </MainStyle>
         </div>

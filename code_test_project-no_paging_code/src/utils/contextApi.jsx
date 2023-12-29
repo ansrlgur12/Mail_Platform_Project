@@ -5,8 +5,11 @@ export const DataContext = createContext(null);
 const DataStore = (props) => {
   const [clickedData, setClickedData] = useState({});
   const [clicked, setClicked] = useState(false);
+  const [clickAdd, setClickAdd] = useState(false);
   const [settingClose, setSettingClose] = useState(false);
   const [listClose, setListClose] = useState(false);
+
+  const [updateData, setUpdateData] = useState([]);
 
   return (
     <DataContext.Provider value={{ 
@@ -17,7 +20,12 @@ const DataStore = (props) => {
         settingClose,
         setSettingClose,
         listClose,
-        setListClose
+        setListClose,
+        clickAdd,
+        setClickAdd,
+        updateData,
+        setUpdateData
+
         }}>
       {props.children}
     </DataContext.Provider>

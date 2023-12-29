@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
 import MockApi from '../../utils/mockApi';
 import { formatDate } from '../../utils/formatDate';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faAnglesLeft, faAnglesRight, faDownload } from "@fortawesome/free-solid-svg-icons";
-
+import { DataContext } from '../../utils/contextApi';
 
 const mockApi = new MockApi();
 
 const Main = () => {
+
+    const context = useContext(DataContext);
+    const {setClicked, setClickedData, setSettingClose, listClose, clicked} = context;
 
     const [jsonData, setJsonData] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [pageItems, setPageItems] = useState(10);
     const [selectAll, setSelectAll] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
+
 
     useEffect(() => {
         fetchData();
@@ -24,7 +28,6 @@ const Main = () => {
         try {
             const response = await mockApi.get();
             setJsonData(response.data.articles);
-            console.log(jsonData)
         } catch (error) {
             console.error('Error fetching data:', error);
         }
@@ -39,37 +42,42 @@ const Main = () => {
         setPageItems(Number(e.target.value))
     }
 
-    const onSelectAll = () => {
+    const onSelectAll = () => { // 전체 선택
         setSelectAll(!selectAll);
-        setSelectedItems([]); // 전체 선택 시 개별 선택 초기화
-      };
+        setSelectedItems([]); 
+    };
+     
+    const onChangeCheckbox = (item) => { // 개별 선택
+      const index = selectedItems.findIndex((selectedItem) => selectedItem === item.mailUid);
+      if (index === -1) {
+        setSelectedItems([...selectedItems, item.mailUid]);
+      } else {
+        const updatedItems = [...selectedItems];
+        updatedItems.splice(index, 1);
+        setSelectedItems(updatedItems);
+      }
+      setSelectAll(false);
+    };
     
-      const onChangeCheckbox = (item) => {
-        // 개별 체크박스 토글 로직
-        const index = selectedItems.findIndex((selectedItem) => selectedItem === item.mailUid);
-        if (index === -1) {
-          // 선택되지 않은 경우 추가
-          setSelectedItems([...selectedItems, item.mailUid]);
-        } else {
-          // 이미 선택된 경우 제거
-          const updatedItems = [...selectedItems];
-          updatedItems.splice(index, 1);
-          setSelectedItems(updatedItems);
-        }
-        setSelectAll(false); // 개별 선택 시 전체 선택 해제
-      };
+    const onClickData = (e) => {
+        setClickedData(jsonData[e - 1]);
+        setClicked(false);
+        setSettingClose(true);
+
+    }
+      
 
     const items = () => {
         const startIndex = (currentPage - 1) * pageItems;
         const endIndex = startIndex + pageItems;
         return jsonData.slice(startIndex, endIndex).map((item) => (
-          <tr key={item.mailUid}>
-            <td>
-                <input type="checkbox" checked={selectAll || selectedItems.includes(item.mailUid)} onChange={() => onChangeCheckbox(item)}/>
-            </td>
+          <tr key={item.mailUid} 
+          style={{ backgroundColor: selectAll || selectedItems.includes(item.mailUid) ? 'rgba(255, 235, 58, 0.2)' : '' }}
+          >
+            <td><input type="checkbox" checked={selectAll || selectedItems.includes(item.mailUid)} onChange={() => onChangeCheckbox(item)}/></td>
             <td>{item.mailUid}</td>
             <td>{item.mailType}</td>
-            <td className="title">{item.mailTitle}</td>
+            <td className="title" onClick={()=>onClickData(item.mailUid)}>{item.mailTitle}</td>
             <td>{item.ismailIUse}</td>
             <td>{formatDate(item.modificationDate)}</td>
           </tr>
@@ -79,7 +87,7 @@ const Main = () => {
     const totalPages = Math.ceil(jsonData.length / pageItems);
 
     return (
-        <>
+        <div style={{display: listClose ? "none" : "block"}}>
         <MainStyle>
             <Desc>
                 <div className='left'>
@@ -145,7 +153,7 @@ const Main = () => {
                 보기 {pageItems*currentPage-(pageItems-1)}-{pageItems*currentPage} / {jsonData.length}
             </div>
         </Bottom>
-        </>
+        </div>
     );
 };
 
@@ -236,6 +244,7 @@ const TableStyle = styled.table`
         .title{
             text-align: start;
             padding-left: 10px;
+            cursor: pointer;
         }
     }
 

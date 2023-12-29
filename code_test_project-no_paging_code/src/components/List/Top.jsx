@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons/faBars";
+import { DataContext } from '../../utils/contextApi';
 
 const Top = () => {
+
+    const context = useContext(DataContext);
+    const {listClose, setListClose} = context;
+
+    const onClickListClose = () => {
+        setListClose(!listClose);
+    }
+
     return (
         <TopStyle>
             <div>
@@ -11,7 +20,7 @@ const Top = () => {
             컨텐츠 목록
             </div>
             
-            <MinBtn onClick={()=>console.log("클릭!")}>-</ MinBtn>
+            <MinBtn onClick={onClickListClose}>-</ MinBtn>
         </TopStyle>
     );
 };

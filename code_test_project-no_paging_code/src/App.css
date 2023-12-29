@@ -1,4 +1,41 @@
-.App {
 
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap');
+
+body{
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: #EDEEF3;
 }
+
+input[type='radio'] {
+
+    -webkit-appearance: none; 
+    -moz-appearance: none; 
+    appearance: none; 
+    width: 12px;
+    height: 12px;
+    border: 1px solid #CDD0E5;
+    border-radius: 50%;
+    margin-right: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+input[type='radio']:checked {
+
+    background-color: #D84F6C;
+    border: 1px solid white; 
+    box-shadow: 0 0 0 1px #CDD0E5; 
+    
+}
+
+input[type='checkbox'] {
+
+    accent-color: #EF3D66;
+}
+
+input[type= 'text'] {
+    padding-left: 5px;
+}
+
 

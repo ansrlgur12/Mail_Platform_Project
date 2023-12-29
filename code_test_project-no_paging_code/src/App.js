@@ -1,13 +1,17 @@
-import Example from "./example/Example";
-import {useState} from "react";
 import MailService from "./pages/MailService";
+import './App.css';
+import DataStore from "./utils/contextApi";
+
+
 
 function App() {
 
 
     return (
         <div className="App">
-            <MailService/>
+            <DataStore>
+                <MailService/>
+            </DataStore>
         </div>
     );
 }

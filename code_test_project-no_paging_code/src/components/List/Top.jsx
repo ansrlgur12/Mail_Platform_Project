@@ -7,7 +7,7 @@ import { DataContext } from '../../utils/contextApi';
 const Top = () => {
 
     const context = useContext(DataContext);
-    const {listClose, setListClose, clickAdd} = context;
+    const {listClose, setListClose} = context;
 
     const onClickListClose = () => {
         setListClose(!listClose);
@@ -16,8 +16,8 @@ const Top = () => {
     return (
         <TopStyle>
             <div>
-            <FontAwesomeIcon icon={faBars} style={{color: "#ffffff", marginRight: "5px"}} />
-            {clickAdd ? "컨텐츠 등록" : "컨텐츠 목록"}
+                <FontAwesomeIcon icon={faBars} style={{color: "#ffffff", marginRight: "5px"}} />
+                컨텐츠 목록
             </div>
             
             <MinBtn onClick={onClickListClose}>-</ MinBtn>

@@ -1,15 +1,11 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Top from './Top';
 import Main from './Main';
-import { DataContext } from '../../utils/contextApi';
 
 const Setting = () => {
 
-    const context = useContext(DataContext);
-    const {settingClose} = context;
 
-    if(settingClose)
     return (
         <SettingStyle>
             <Top />

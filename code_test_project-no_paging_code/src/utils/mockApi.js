@@ -94,7 +94,6 @@ class MockApi {
             this.#db.articles.splice(dtoIndex, 1, tempDto);
 
             this.#setResultSuccess(result);
-            console.log("수정 성공")
         } catch (error) {
             console.error(error);
             this.#setResultFail(result);
@@ -120,141 +119,143 @@ class MockApi {
      * }
      * */
 
-    async get({
-                  mailType,
-                  mailTitle,
-                  ismailIUse,
-                  limit,
-                  currentPage,
-              } = {} || undefined) {
-        const result = {
-            data: null,
-            status: null,
-        }
-        await this.#sleepWithRandom();
-
-        const tempMailDto = {
-            mailType: mailType || "",
-            mailTitle: mailTitle || "",
-            ismailIUse: ismailIUse || "",
-        }
-
-        const tempPageDto = {
-            limit: limit || this.#db.articles.length,
-            currentPage: currentPage || 1,
-        }
-
-        try {
-            const tempDB = this.#db.articles.filter(value => this.#checkObjectValue(tempMailDto, value));
-
-            const tempResult = {
-                articles : tempDB,
-                page: tempPageDto
+        async get({
+                    mailType,
+                    mailTitle,
+                    ismailIUse,
+                    limit,
+                    currentPage,
+                } = {} || undefined) {
+            const result = {
+                data: null,
+                status: null,
             }
-            this.#setResultSuccess(result, tempResult);
-            return result;
-        } catch (error) {
-            console.error(error);
-            this.#setResultFail(result);
-            return result;
-        }
-    }
+            await this.#sleepWithRandom();
 
-    /**
-     * 생성 api
-     * @param mailType 'Inserted Type' [Type] String
-     * @param mailTitle 'Inserted Title' [Type] String
-     * @param ismailIUse 'Y' || 'N' [Type] String
-     * @param mailContent 'Inserted Content' [Type] String
-     * @param reason 'Inserted Reason' [Type] String
-     * @return data {
-     * data: [Type] BoardDtoList,
-     * status [Type] Number
-     * }
-     * */
-    async post({
-                   mailType,
-                   mailTitle,
-                   ismailIUse,
-                   mailContent,
-                   reason,
-               }) {
-        const result = {
-            data: null,
-            status: null,
-        }
-        await this.#sleepWithRandom();
-
-        const tempDto = {
-            mailUid: this.#db.articles.length + 1,
-            mailType: mailType,
-            mailTitle: mailTitle,
-            ismailIUse: ismailIUse,
-            mailContent: mailContent,
-            modificationDate: this.#getLocalDate(),
-            reason: reason,
-        }
-
-        try {
-            this.#db.articles.push(tempDto);
-            this.#setResultSuccess(result);
-            console.log(tempDto.modificationDate);
-            console.log("성공")
-            console.log(this.#db.articles.length);
-        } catch (error) {
-            console.error(error)
-            this.#setResultFail(result);
-            return result;
-        }
-
-        return result
-    }
-
-    #setResultSuccess(result, articles) {
-        result.data = articles || Object.assign([], this.#db.articles);
-        result.status = 200;
-    }
-
-    #setResultFail(result) {
-        if (!result.status) {
-            result.status = 400;
-        }
-    }
-
-    #getLocalDate() {
-        const currentDate = new Date();
-        console.log(currentDate);
-        const year = currentDate.getFullYear();
-        const month = currentDate.getMonth() + 1;
-        const day = currentDate.getDate();
-        const hours = currentDate.getHours();
-        const minutes = currentDate.getMinutes();
-        const seconds = currentDate.getSeconds();
-
-        return `${year}-${month < 10 ? "0" + month : month}-${day}T${hours}:${minutes}:${seconds}Z`;
-    }
-
-    #checkObjectValue(object, compereValue) {
-        const keys = Object.keys(object);
-        let checkData = true;
-        keys.forEach(key => {
-            if (!compereValue[key].includes(object[key])) {
-                checkData = false;
+            const tempMailDto = {
+                mailType: mailType || "",
+                mailTitle: mailTitle || "",
+                ismailIUse: ismailIUse || "",
             }
-        })
-        return checkData;
+
+            const tempPageDto = {
+                limit: limit || this.#db.articles.length,
+                currentPage: currentPage || 1,
+            }
+
+            try {
+                const tempDB = this.#db.articles.filter(value => this.#checkObjectValue(tempMailDto, value));
+
+                const startIndex = (tempPageDto.currentPage - 1) * tempPageDto.limit;
+                const endIndex = startIndex + parseInt(tempPageDto.limit, 10);
+                const paginatedData = tempDB.slice(startIndex, endIndex);
+
+                const tempResult = {
+                articles: paginatedData,
+                page: tempPageDto,
+                };
+
+                this.#setResultSuccess(result, tempResult);
+                return result;
+            } catch (error) {
+                console.error(error);
+                this.#setResultFail(result);
+                return result;
+            }
+        }
+
+        /**
+         * 생성 api
+         * @param mailType 'Inserted Type' [Type] String
+         * @param mailTitle 'Inserted Title' [Type] String
+         * @param ismailIUse 'Y' || 'N' [Type] String
+         * @param mailContent 'Inserted Content' [Type] String
+         * @param reason 'Inserted Reason' [Type] String
+         * @return data {
+         * data: [Type] BoardDtoList,
+         * status [Type] Number
+         * }
+         * */
+        async post({
+                    mailType,
+                    mailTitle,
+                    ismailIUse,
+                    mailContent,
+                    reason,
+                }) {
+            const result = {
+                data: null,
+                status: null,
+            }
+            await this.#sleepWithRandom();
+
+            const tempDto = {
+                mailUid: this.#db.articles.length + 1,
+                mailType: mailType,
+                mailTitle: mailTitle,
+                ismailIUse: ismailIUse,
+                mailContent: mailContent,
+                modificationDate: this.#getLocalDate(),
+                reason: reason,
+            }
+
+            try {
+                this.#db.articles.push(tempDto);
+                this.#setResultSuccess(result);
+            } catch (error) {
+                console.error(error)
+                this.#setResultFail(result);
+                return result;
+            }
+
+            return result
+        }
+
+        #setResultSuccess(result, articles) {
+            result.data = articles || Object.assign([], this.#db.articles);
+            result.status = 200;
+        }
+
+        #setResultFail(result) {
+            if (!result.status) {
+                result.status = 400;
+            }
+        }
+
+        #getLocalDate() {
+            const currentDate = new Date();
+            console.log(currentDate);
+            const year = currentDate.getFullYear();
+            const month = currentDate.getMonth() + 1;
+            const day = currentDate.getDate();
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
+            const seconds = currentDate.getSeconds();
+
+            return `${year}-${month < 10 ? "0" + month : month}-${day}T${hours}:${minutes}:${seconds}Z`;
+        }
+
+        #checkObjectValue(object, compereValue) {
+            const keys = Object.keys(object);
+            let checkData = true;
+            keys.forEach(key => {
+                if (!compereValue[key].toLowerCase().includes(object[key].toLowerCase())) {
+                    checkData = false;
+                }
+            })
+            return checkData;
+        }
+
+        #sleep(duration = 1000) {
+            return new Promise(resolve => {
+                setTimeout(resolve, duration);
+            });
+        }
+        async #sleepWithRandom(fromMs = 0, toMs = 1000){
+            const randomMilliseconds = Math.max(Math.random() * toMs + fromMs, 1);
+            return await this.#sleep(randomMilliseconds);
+        }
+
     }
 
-    #sleep(duration = 1000) {
-        return new Promise(resolve => {
-            setTimeout(resolve, duration);
-        });
-    }
-    async #sleepWithRandom(fromMs = 0, toMs = 1000){
-        const randomMilliseconds = Math.max(Math.random() * toMs + fromMs, 1);
-        return await this.#sleep(randomMilliseconds);
-    }
-
-}
-
-export default MockApi
+    export default MockApi

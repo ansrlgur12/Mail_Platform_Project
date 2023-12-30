@@ -4,19 +4,21 @@ export const DataContext = createContext(null);
 
 const DataStore = (props) => {
   const [clickedData, setClickedData] = useState({});
-  const [clicked, setClicked] = useState(false);
-  const [clickAdd, setClickAdd] = useState(false);
-  const [settingClose, setSettingClose] = useState(false);
+  const [clickAdd, setClickAdd] = useState(true);
+
+  const [settingClose, setSettingClose] = useState(true);
   const [listClose, setListClose] = useState(false);
+  const [searchClose, setSearchClose] = useState(false);
 
   const [updateData, setUpdateData] = useState([]);
+  const [change, setChange] = useState(false);
+  
+  const [searchValue, setSearchValue] = useState([]);
 
   return (
     <DataContext.Provider value={{ 
         clickedData, 
         setClickedData,
-        clicked,
-        setClicked,
         settingClose,
         setSettingClose,
         listClose,
@@ -24,8 +26,13 @@ const DataStore = (props) => {
         clickAdd,
         setClickAdd,
         updateData,
-        setUpdateData
-
+        setUpdateData,
+        change,
+        setChange,
+        searchValue,
+        setSearchValue,
+        searchClose,
+        setSearchClose
         }}>
       {props.children}
     </DataContext.Provider>

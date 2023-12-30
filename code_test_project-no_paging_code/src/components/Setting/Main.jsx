@@ -6,13 +6,15 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faNoteSticky } from "@fortawesome/free-regular-svg-icons";
 import MockApi from '../../utils/mockApi';
+import Modal from '../../utils/modal';
+import Priview from '../../utils/priview';
 
 const mockApi = new MockApi();
 
 const Main = () => {
 
     const context = useContext(DataContext);
-    const {clicked, clickedData, setSettingClose, setClicked, setClickedData, clickAdd, setUpdateData} = context;
+    const {settingClose, clickedData, setSettingClose, setClickedData, clickAdd, setUpdateData, change, setChange} = context;
 
     
     const [mailContent, setMailContent] = useState("");
@@ -23,6 +25,15 @@ const Main = () => {
     const [mailUse, setMailUse] = useState("");
     const [content, setContent] = useState("");
     const [parsedContent, setParsedContent] = useState("");
+
+    const [addModalOpen, setAddModalOpen] = useState(false);
+    const [updateModalOpen, setUpdateModalOpen] = useState(false);
+    const [finAddModalOpen, setFinAddModalOpen] = useState(false);
+    const [finUpdateModalOpen, setFinUpdateModalOpen] = useState(false);
+    const [closeSettingModalOpen, setCloseSettingModalOpen] = useState(false);
+
+    const [priviewOpen, setPriviewOpen] = useState(false);
+
 
 
     useEffect(()=>{
@@ -58,9 +69,13 @@ const Main = () => {
     };
 
     const onClickSettingClose = () => {
-        setSettingClose(false);
-        setClicked(false);
+        setSettingClose(!settingClose);
         setClickedData({});
+        setCloseSettingModalOpen(false);
+    }
+
+    const onClickSettingCloseModal = () => {
+        setCloseSettingModalOpen(true);
     }
 
     const onClickSave = async() => {
@@ -74,11 +89,14 @@ const Main = () => {
                     mailContent: parsedContent,
                     reason: reason
                 });
+                setAddModalOpen(false);
                 setUpdateData(rsp.data.article);
-
+                setFinAddModalOpen(true);
+                setChange(!change);
             } catch (error) {
                 console.error(error);
             }
+            
             
         }
         else{
@@ -91,24 +109,77 @@ const Main = () => {
                     mailContent: parsedContent,
                     reason: reason
                 });
+                setUpdateModalOpen(false);
                 setUpdateData(rsp.data.article);
-
+                setFinUpdateModalOpen(true);
+                setChange(!change);
             } catch (error) {
                 console.error(error);
             }
+            
         }
         
     }
 
+    const ModalOpen = () => {
+
+        if(clickAdd){
+            setAddModalOpen(true);
+        }
+        else{
+            setUpdateModalOpen(true);
+        }
+        
+    }
+
+    const closeModal = () => {
+
+        if(addModalOpen){
+            setAddModalOpen(false);
+        }
+        else{
+            setUpdateModalOpen(false);
+        }
+
+    }
+
+    const closeFinModal = () => {
+
+        if(finAddModalOpen){
+            setSettingClose(false);
+            setClickedData({});
+            setFinAddModalOpen(false);
+        }
+        else{
+            setSettingClose(false);
+            setClickedData({});
+            setFinUpdateModalOpen(false);
+        }
+
+    }
+
+    const closeSettingModal = () => {
+        setCloseSettingModalOpen(false);
+    }
+
+    const onClickPriview = () => {
+        setPriviewOpen(true);
+    }
+
+    const closePriview = () => {
+        setPriviewOpen(false);
+    }
+
     
     return (
-        <div style={{display: clicked ? "none" : "block"}}>
+        <div style={{display: settingClose ? "none" : "block"}}>
         <MainStyle>
             <table>
                 <tr>
                     <th>메일유형</th>
                     <td className='td'>
-                        <select name="" id="" value={mailType} onChange={onChangeType}>
+                        <select name="" id="" value={mailType ? mailType : ""} onChange={onChangeType}>
+                            <option value="" disabled hidden>유형 선택</option>
                             <option value="Notification">Notification</option>
                             <option value="Marketing">Marketing</option>
                         </select>
@@ -121,7 +192,7 @@ const Main = () => {
                 </tr>
                 <tr>
                     <th>메일 발송제목</th>
-                    <td colspan="3"><input className='input' type="text" value={title} onChange={onChangeTitle}/></td>
+                    <td colspan="3"><input className='input' type="text" value={title ? title : ""} onChange={onChangeTitle}/></td>
                 </tr>
                 <tr>
                     <th>메일 내용</th>
@@ -144,18 +215,24 @@ const Main = () => {
                 </tr>
                 <tr>
                     <th>변경 사유</th>
-                    <td colspan="3"><input className='input' type="text" value={reason} onChange={onChangeReason} placeholder='argument 변경시 에러가 발생하오니 주의하시기 바랍니다.'/></td>
+                    <td colspan="3"><input className='input' type="text" value={reason ? reason : ""} onChange={onChangeReason} placeholder='argument 변경시 에러가 발생하오니 주의하시기 바랍니다.'/></td>
                 </tr>
                 
             </table>
-            <Preview>
+            <Preview onClick={onClickPriview}>
                 <button><FontAwesomeIcon icon={faNoteSticky} /> 미리보기</button>
             </Preview>
             <BtnArea>
-                <button className='close' onClick={onClickSettingClose}>창닫기</button>
-                <button onClick={onClickSave}>저장</button>
+                <button className='close' onClick={onClickSettingCloseModal}>창닫기</button>
+                <button className={title && content && mailType && mailUse && reason ? "" : "disable"} onClick={ModalOpen}>저장</button>
             </BtnArea>
         </MainStyle>
+        <Modal open={addModalOpen} close={closeModal} header="등록" type={true} confirm={onClickSave}>등록 하시겠습니까?</Modal>
+        <Modal open={updateModalOpen} close={closeModal} header="수정" type={true} confirm={onClickSave}>수정 하시겠습니까?</Modal>
+        <Modal open={finAddModalOpen} close={closeFinModal} header="완료" fin={true}>등록이 완료되었습니다.</Modal>
+        <Modal open={finUpdateModalOpen} close={closeFinModal} header="완료" fin={true}>수정이 완료되었습니다.</Modal>
+        <Modal open={closeSettingModalOpen} close={closeSettingModal} header="닫기" type={true} confirm={onClickSettingClose}>닫으시겠습니까?</Modal>
+        <Priview open={priviewOpen} close={closePriview} title={title} content={content} type={mailType} useMail={mailUse}></Priview>
         </div>
     );
     
@@ -264,5 +341,9 @@ const BtnArea = styled.div`
         border: 1px solid #B3B6C7;
         background-color: #FFFFFF;
         color: #191919;
+    }
+    .disable{
+        background-color: #6b6b6b;
+        pointer-events: none;
     }
 `;

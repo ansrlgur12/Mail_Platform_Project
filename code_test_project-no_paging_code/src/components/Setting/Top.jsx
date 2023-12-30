@@ -7,10 +7,10 @@ import { DataContext } from '../../utils/contextApi';
 const Top = () => {
 
     const context = useContext(DataContext);
-    const {clicked, setClicked, clickAdd} = context;
+    const {settingClose, setSettingClose, clickAdd} = context;
 
     const onClickMinBtn = () => {
-        setClicked(!clicked);
+        setSettingClose(!settingClose);
     }
 
     return (

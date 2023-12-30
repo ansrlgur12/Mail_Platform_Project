@@ -5,32 +5,61 @@ import { formatDate } from '../../utils/formatDate';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faAnglesLeft, faAnglesRight, faDownload } from "@fortawesome/free-solid-svg-icons";
 import { DataContext } from '../../utils/contextApi';
+import Modal from '../../utils/modal';
+import excel from '../../utils/excel';
 
 const mockApi = new MockApi();
 
 const Main = () => {
 
     const context = useContext(DataContext);
-    const {setClicked, setClickedData, setSettingClose, listClose, clickAdd, setClickAdd, updateData} = context;
+    const {setSettingClose, setClickedData, listClose, setClickAdd, updateData, change, setChange, searchValue} = context;
 
     const [jsonData, setJsonData] = useState([]);
+    const [allJsonData, setAllJsonData] = useState([]); 
     const [currentPage, setCurrentPage] = useState(1);
     const [pageItems, setPageItems] = useState(10);
     const [selectAll, setSelectAll] = useState(false);
     const [selectedItems, setSelectedItems] = useState([]);
 
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const [finModalOpen, setFinModalOpen] = useState(false);
+
+
     useEffect(() => {
         fetchData();
-    }, [currentPage, pageItems, updateData]);
+    }, [change, updateData]);
 
-    const fetchData = async () => {
+    useEffect(()=>{
+        fetchDataPaging();
+    },[currentPage, pageItems, change, updateData, searchValue])
+
+    const fetchData = async () => { // 일반 호출
         try {
             const response = await mockApi.get();
-            setJsonData(response.data.articles);
+            setAllJsonData(response.data.articles);
+
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     };
+
+    const fetchDataPaging = async () => { // 페이징 호출
+        try {
+            const rsp = await mockApi.get({
+                mailType: searchValue.type === "type" ? searchValue.value : "",
+                mailTitle: searchValue.type === "title" ? searchValue.value : "",
+                ismailIUse: searchValue.type === "use" ? searchValue.value : "",
+                limit: pageItems,
+                currentPage: currentPage
+            });
+            setJsonData(rsp.data.articles);
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+
 
     const onClickPage = (e) => {
         setCurrentPage(e);
@@ -51,70 +80,108 @@ const Main = () => {
       if (index === -1) {
         setSelectedItems([...selectedItems, item.mailUid]);
       } else {
-        const updatedItems = [...selectedItems];
-        updatedItems.splice(index, 1);
-        setSelectedItems(updatedItems);
+        const items = [...selectedItems];
+        items.splice(index, 1);
+        setSelectedItems(items);
       }
       setSelectAll(false);
     };
     
     const onClickData = (e) => {
-        setClickedData(jsonData[e - 1]);
-        setClicked(false);
-        setClickAdd(false);
-        setSettingClose(true);
+        setClickedData(allJsonData[e - 1]);  // 에디터에 표시하기 위한 데이터
+        setSettingClose(false);     // min버튼 축소 해제
+        setClickAdd(false);    // 수정페이지 나타남
     }
 
     const onClickAdd = () => {
-        setClickedData({});
-        setClicked(false);
-        setClickAdd(true);
-        setSettingClose(true);
+        setClickedData({});    // 에디터 초기화
+        setSettingClose(false);     // min버튼 축소 해제
+        setClickAdd(true);     // 등록페이지 나타남
+    }
+
+    const onClickDelModal = () => {
+        setModalOpen(true);
     }
 
     const onClickDel = async() => {
-        try{
-            const rsp = await mockApi.delete({mailUidList:selectedItems});
-            console.log(rsp);
-        } catch (error) {
-            console.error(error);
+
+        if(selectAll) {
+            try{
+                const allMailUids = allJsonData.map((item) => item.mailUid);
+                const rsp = await mockApi.delete({mailUidList:allMailUids});
+                console.log(rsp);
+                setModalOpen(false);
+                setChange(!change);
+                setFinModalOpen(true);
+                setSelectAll(!selectAll);
+            } catch (error) {
+                console.error(error);
+            }
+            
         }
 
+        else{
+            try{
+                const rsp = await mockApi.delete({mailUidList:selectedItems});
+                console.log(rsp);
+                setModalOpen(false);
+                setChange(!change);
+                setFinModalOpen(true);
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    }
+
+    const closeModal = () => {
+        setModalOpen(false);
+    };
+
+    const closeFinModal = () => {
+        setFinModalOpen(false);
+    }
+
+    const onClickExcelDownload = () => {
+        if(selectAll) {
+            const allMailUids = allJsonData.map((item) => item.mailUid);
+            excel(allMailUids, allJsonData);
+        }
+        else{
+            excel(selectedItems, allJsonData);
+        }
     }
       
 
     const items = () => {
-        const startIndex = (currentPage - 1) * pageItems;
-        const endIndex = startIndex + pageItems;
-        return jsonData.slice(startIndex, endIndex).map((item) => (
-          <tr key={item.mailUid} 
-          style={{ backgroundColor: selectAll || selectedItems.includes(item.mailUid) ? 'rgba(255, 235, 58, 0.2)' : '' }}
-          >
-            <td><input type="checkbox" checked={selectAll || selectedItems.includes(item.mailUid)} onChange={() => onChangeCheckbox(item)}/></td>
-            <td>{item.mailUid}</td>
-            <td>{item.mailType}</td>
-            <td className="title" onClick={()=>onClickData(item.mailUid)}>{item.mailTitle}</td>
-            <td>{item.ismailIUse}</td>
-            <td>{formatDate(item.modificationDate)}</td>
-          </tr>
+        return jsonData.map((item) => (
+            <tr key={item.mailUid} 
+            style={{ backgroundColor: selectAll || selectedItems.includes(item.mailUid) ? 'rgba(255, 235, 58, 0.2)' : '' }}
+            >
+                <td><input type="checkbox" checked={selectAll || selectedItems.includes(item.mailUid)} onChange={() => onChangeCheckbox(item)}/></td>
+                <td>{item.mailUid}</td>
+                <td>{item.mailType}</td>
+                <td className="title" onClick={()=>onClickData(item.mailUid)}>{item.mailTitle}</td>
+                <td>{item.ismailIUse}</td>
+                <td>{formatDate(item.modificationDate)}</td>
+            </tr>
         ));
     };
 
-    const totalPages = Math.ceil(jsonData.length / pageItems);
+    const totalPages = Math.ceil(allJsonData.length / pageItems);
 
     return (
         <div style={{display: listClose ? "none" : "block"}}>
+        <Desc>
+            <div className='left'>
+                <ColorBox>현재등록 : {allJsonData.length}</ColorBox>
+                <div>등록된 전체 메일 유형입니다.</div>
+            </div>
+            <div>
+                <NormalBtn onClick={onClickAdd}>등록</NormalBtn>
+                <NormalBtn onClick={onClickDelModal}>삭제</NormalBtn>
+            </div>
+        </Desc>
         <MainStyle>
-            <Desc>
-                <div className='left'>
-                    <ColorBox>현재등록 : {jsonData.length}</ColorBox>
-                    <div>등록된 전체 메일 유형입니다.</div>
-                </div>
-                <div>
-                    <NormalBtn onClick={onClickAdd}>등록</NormalBtn>
-                    <NormalBtn onClick={onClickDel}>삭제</NormalBtn>
-                </div>
-            </Desc>
             <TableStyle>
                 <colgroup>
                     <col style={{width: '50px'}}/>
@@ -139,7 +206,7 @@ const Main = () => {
         </MainStyle>
 
         <Bottom>
-            <div className='excel'>
+            <div className='excel' onClick={onClickExcelDownload}>
                 <FontAwesomeIcon icon={faDownload} style={{marginRight: '5px'}}/>
                 엑셀저장
             </div>
@@ -162,14 +229,17 @@ const Main = () => {
                     <option value="15">15</option>
                     <option value="20">20</option>
                     <option value="30">30</option>
-                    <option value={jsonData.length}>전체</option>
+                    <option value={allJsonData.length}>전체</option>
                 </select>
             </div>
             <div className='bot-right'>
-                보기 {pageItems*currentPage-(pageItems-1)}-{currentPage === totalPages ? jsonData.length : pageItems*currentPage} / {jsonData.length}
+                보기 {pageItems*currentPage-(pageItems-1)}-{currentPage === totalPages ? allJsonData.length : pageItems*currentPage} / {allJsonData.length}
             </div>
         </Bottom>
+        <Modal open={modalOpen} close={closeModal} header="삭제" type={true} confirm={onClickDel}>{selectAll ? "전체 항목을 삭제 하시겠습니까?" : "삭제 하시겠습니까?"}</Modal>
+        <Modal open={finModalOpen} close={closeFinModal} header="완료" fin={true}>삭제가 완료되었습니다.</Modal>
         </div>
+        
     );
 };
 
@@ -184,7 +254,7 @@ const MainStyle = styled.div`
     overflow-y: scroll;
 `
 
-const NormalBtn = styled.button`
+export const NormalBtn = styled.button`
         font-size: 12px;
         font-weight: 500;
         width: 60px;
@@ -198,6 +268,9 @@ const NormalBtn = styled.button`
 `
 
 const Desc = styled.div`
+    background-color: #FFFFFF;
+    font-size: 12px;
+    position: static;
     height: 40px;
     padding: 0 10px;
     display: flex;
@@ -242,7 +315,7 @@ const TableStyle = styled.table`
     thead{
         border-top: 1px solid #2E3E76;
         border-bottom: 1px solid #2E3E76;
-
+        
         .th{
         height: 12px;
         border-left: 1px solid #2E3E76;

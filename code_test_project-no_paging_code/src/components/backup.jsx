@@ -8,9 +8,6 @@ import { DataContext } from '../../utils/contextApi';
 import Modal from '../../utils/modal';
 import excel from '../../utils/excel';
 
-import {useTable, useResizeColumns, useBlockLayout} from 'react-table'
-import { column } from '../../utils/column';
-
 const mockApi = new MockApi();
 
 const Main = () => {
@@ -62,20 +59,6 @@ const Main = () => {
             console.error('Error fetching data:', error);
         }
     };
-
-    const {
-        getTableProps,
-        getTableBodyProps,
-        headerGroups,
-        rows,
-        prepareRow
-      } = useTable({
-        columns: column,
-        data: jsonData
-        },
-        useBlockLayout,
-        useResizeColumns
-      );
 
 
     const onClickPage = (e) => {
@@ -169,6 +152,21 @@ const Main = () => {
     }
       
 
+    const items = () => {
+        return jsonData.map((item) => (
+            <tr key={item.mailUid} 
+            style={{ backgroundColor: selectAll || selectedItems.includes(item.mailUid) ? 'rgba(255, 235, 58, 0.2)' : '' }}
+            >
+                <td><input type="checkbox" checked={selectAll || selectedItems.includes(item.mailUid)} onChange={() => onChangeCheckbox(item)}/></td>
+                <td>{item.mailUid}</td>
+                <td>{item.mailType}</td>
+                <td className="title" onClick={()=>onClickData(item.mailUid)}>{item.mailTitle}</td>
+                <td>{item.ismailIUse}</td>
+                <td>{formatDate(item.modificationDate)}</td>
+            </tr>
+        ));
+    };
+
     const totalPages = Math.ceil(allJsonData.length / pageItems);
 
     return (
@@ -184,46 +182,27 @@ const Main = () => {
             </div>
         </Desc>
         <MainStyle>
-        <TableStyle>
-  <table {...getTableProps()} className='table'>
-    <thead>
-      {headerGroups.map((headerGroup) => (
-        <tr {...headerGroup.getHeaderGroupProps()}>
-          <th>
-          <input type='checkbox' checked={selectAll} onChange={onSelectAll} />
-          </th>
-          {headerGroup.headers.map((column) => (
-            <th {...column.getHeaderProps()}>
-              {column.render("Header")}
-              <div
-                {...column.getResizerProps()}
-                className={`resizer ${column.isResizing ? "isResizing" : ""}`}
-              ></div>
-            </th>
-          ))}
-        </tr>
-      ))}
-    </thead>
-    <tbody {...getTableBodyProps()}>
-      {rows.map((row, i) => {
-        prepareRow(row);
-        return (
-          <tr {...row.getRowProps()} className={selectAll || selectedItems.includes(row.original.mailUid) ? 'yellow' : ""}>
-            <td>
-              <input type='checkbox' checked={selectAll || selectedItems.includes(row.original.mailUid)} onChange={() =>  onChangeCheckbox(row.original)} />
-            </td>
-            {row.cells.map((cell, cellIndex) => (
-              <td {...cell.getCellProps()}
-              onClick={() => {
-                onClickData(row.original.mailUid);
-              }}>{cell.render("Cell")}</td>
-            ))}
-          </tr>
-        );
-      })}
-    </tbody>
-  </table>
-</TableStyle>
+            <TableStyle>
+                <colgroup>
+                    <col style={{width: '50px'}}/>
+                    <col style={{ width: '40px'}} />
+                    <col style={{ width: '180px'}} />
+                    <col style={{ width: '590px'}} />
+                    <col style={{ width: '110px'}} />
+                    <col style={{ width: '160px'}} />
+                </colgroup>
+                <thead>
+                    <tr>
+                        <th><input type="checkBox" checked={selectAll} onChange={onSelectAll} /></th>
+                        <th><div className='th'>NO</div></th>
+                        <th><div className='th'>메일 유형</div></th>
+                        <th><div className='th'>메일 발송 제목</div></th>
+                        <th><div className='th'>메일 사용 여부</div></th>
+                        <th><div className='th'>수정일</div></th>
+                    </tr>
+                </thead>
+                <tbody>{items()}</tbody>
+            </TableStyle>
         </MainStyle>
 
         <Bottom>
@@ -328,62 +307,35 @@ const TableStyle = styled.table`
     border-collapse:collapse;
     width: 100%;
     font-size: 12px;
-   
 
-    th{
-        text-align: center;
-        border-bottom: 1.5px solid #2E3E76;
-        border-top: 1.5px solid #2E3E76;
-        line-height: 2;
+    th, td{
+        height: 30px;
+    }
+    
+    thead{
+        border-top: 1px solid #2E3E76;
+        border-bottom: 1px solid #2E3E76;
+        
+        .th{
+        height: 12px;
+        border-left: 1px solid #2E3E76;
+        line-height: 1;
+        }
+
     }
 
-
-    
-    
     tbody{
         td{
             text-align: center;
-            border-bottom: 1px solid #CDD0E5;    
+            border-bottom: 1px solid #CDD0E5;
+            
         }
         .title{
             text-align: start;
             padding-left: 10px;
             cursor: pointer;
         }
-        tr {
-        height: 30px; // 행의 높이를 조절합니다.
-        line-height: 2;
-
-        input{
-            vertical-align: middle;  
-        }
     }
-        
-    }
-
-    .resizer {
-        display: inline-block;
-        background: black;
-        margin-top: 4px;
-        width: 1.5px;
-        height: 16px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        transform: translateX(50%);
-        z-index: 1;
-        
-        ${""}
-        touch-action:none;
-
-        &.isResizing {
-          background: red;
-        }
-      }
-
-      .yellow{
-        background-color: rgba(255, 235, 58, 0.2);
-      }
 
     
 `;

@@ -1,20 +1,19 @@
+import MockApi from '../utils/mockApi';
 import React, { useContext, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import MockApi from '../../utils/mockApi';
-import { formatDate } from '../../utils/formatDate';
+import { formatDate } from '../utils/formatDate';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight, faAnglesLeft, faAnglesRight, faDownload } from "@fortawesome/free-solid-svg-icons";
-import { DataContext } from '../../utils/contextApi';
-import Modal from '../../utils/modal';
-import excel from '../../utils/excel';
-
+import { DataContext } from '../utils/contextApi';
+import Modal from '../utils/modal';
+import excel from '../utils/excel';
 import {useTable, useResizeColumns, useBlockLayout} from 'react-table'
-import { column } from '../../utils/column';
+import { column } from '../utils/column';
 
 const mockApi = new MockApi();
 
-const Main = () => {
-
+const Test2 = () => {
+   
     const context = useContext(DataContext);
     const {setSettingClose, setClickedData, listClose, setClickAdd, updateData, change, setChange, searchValue} = context;
 
@@ -76,7 +75,6 @@ const Main = () => {
         useBlockLayout,
         useResizeColumns
       );
-
 
     const onClickPage = (e) => {
         setCurrentPage(e);
@@ -190,7 +188,7 @@ const Main = () => {
       {headerGroups.map((headerGroup) => (
         <tr {...headerGroup.getHeaderGroupProps()}>
           <th>
-          <input type='checkbox' checked={selectAll} onChange={onSelectAll} />
+            <input type='checkbox' />
           </th>
           {headerGroup.headers.map((column) => (
             <th {...column.getHeaderProps()}>
@@ -208,9 +206,9 @@ const Main = () => {
       {rows.map((row, i) => {
         prepareRow(row);
         return (
-          <tr {...row.getRowProps()} className={selectAll || selectedItems.includes(row.original.mailUid) ? 'yellow' : ""}>
+          <tr {...row.getRowProps()}>
             <td>
-              <input type='checkbox' checked={selectAll || selectedItems.includes(row.original.mailUid)} onChange={() =>  onChangeCheckbox(row.original)} />
+              <input type='checkbox' />
             </td>
             {row.cells.map((cell, cellIndex) => (
               <td {...cell.getCellProps()}
@@ -264,7 +262,8 @@ const Main = () => {
     );
 };
 
-export default Main;
+
+export default Test2;
 
 const MainStyle = styled.div`
     position: relative;
@@ -381,9 +380,7 @@ const TableStyle = styled.table`
         }
       }
 
-      .yellow{
-        background-color: rgba(255, 235, 58, 0.2);
-      }
+      
 
     
 `;

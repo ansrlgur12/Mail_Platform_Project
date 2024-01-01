@@ -51,6 +51,8 @@
 - 에디터에 작성되어있는 내용 미리보기 가능
 ![image](https://github.com/ansrlgur12/-/assets/121914919/6fff7477-7e1f-441b-afdf-bb5abbdf8489)
 
-
+### 테이블 컬럼 리사이징
+- 헤더 라인 드래그 시 리사이징 가능
+![image](https://github.com/ansrlgur12/-/assets/121914919/6b442c2b-446b-4a4c-a90c-1328707ea2ed)
 
 

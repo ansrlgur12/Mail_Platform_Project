@@ -40,3 +40,10 @@
 - 리스트에서 메일 제목 클릭 시 -> 컨텐츠 수정 창 나타남 (내용 불러옴)
 ![image](https://github.com/ansrlgur12/-/assets/121914919/cfeebf96-cc97-4f96-ae20-0cd1eb0ba25a)
 
+### 미리보기
+- 에디터에 작성되어있는 내용 미리보기 가능
+![image](https://github.com/ansrlgur12/-/assets/121914919/6fff7477-7e1f-441b-afdf-bb5abbdf8489)
+
+
+
+

@@ -38,9 +38,18 @@ const Main = () => {
   const [pageItems, setPageItems] = useState(10);
   const [selectAll, setSelectAll] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [cnt, setCnt] = useState(0);
 
   const [modalOpen, setModalOpen] = useState(false);
   const [finModalOpen, setFinModalOpen] = useState(false);
+
+  useEffect(() => {
+    const getAll = async() => {
+      const rsp = await mockApi.get();
+      setCnt(rsp.data.articles.length);
+    } 
+    getAll();
+  }, [change, updateData])
 
   useEffect(() => {
     fetchData();
@@ -51,7 +60,6 @@ const Main = () => {
   }, [currentPage, pageItems, change, updateData, searchValue]);
 
   const fetchData = async () => {
-    // 일반 호출
     try {
       const response = await mockApi.get({
         mailType: searchValue.type === "type" ? searchValue.value : "",
@@ -66,7 +74,6 @@ const Main = () => {
   };
 
   const fetchDataPaging = async () => {
-    // 페이징 호출
     try {
       const rsp = await mockApi.get({
         mailType: searchValue.type === "type" ? searchValue.value : "",
@@ -101,7 +108,6 @@ const Main = () => {
   };
 
   const onSelectAll = () => {
-    // 전체 선택
     setSelectAll(!selectAll);
     setSelectedItems([]);
   };
@@ -134,7 +140,7 @@ const Main = () => {
   };
 
   const onClickDelModal = () => {
-    if(selectedItems.length === 0){
+    if(selectedItems.length === 0 && !selectAll){
       alert("삭제할 항목을 선택하세요.")
     }
     else{
@@ -195,8 +201,18 @@ const Main = () => {
     <div style={{ display: listClose ? "none" : "block" }}>
       <Desc>
         <div className="left">
-          <ColorBox>현재등록 : {allJsonData.length}</ColorBox>
+          {searchValue.length === 0 ? 
+          <>
+          <ColorBox>현재등록 : {cnt}</ColorBox>
           <div>등록된 전체 메일 유형입니다.</div>
+          </>
+          :
+          <>
+          <ColorBox>검색결과 : {allJsonData.length}</ColorBox>
+          <div>검색된 메일 유형입니다.</div>
+          </>
+          }
+          
         </div>
         <div>
           <NormalBtn onClick={onClickAdd}>등록</NormalBtn>

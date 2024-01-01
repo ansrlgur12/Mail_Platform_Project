@@ -19,8 +19,18 @@
 
 ### 검색 화면
 - 유형 탭의 'noti' 검색 결과
-  ![image](https://github.com/ansrlgur12/-/assets/121914919/884bb395-cbdf-40a5-bf9a-46c9ace7ac56)
+ ![image](https://github.com/ansrlgur12/-/assets/121914919/a59646ea-d183-439b-99f4-28dcafd52137)
 
 
+### 컨텐츠 목록
+![image](https://github.com/ansrlgur12/-/assets/121914919/3e7b395b-55cb-4988-a9b6-8b7ca45a6403)
 
 
+- 현재 등록 메일 수 확인 가능
+- 등록, 수정 가능
+- 체크 박스 선택 후 다수 삭제 가능
+- 페이징 기능 적용
+
+### 엑셀 저장
+![image](https://github.com/ansrlgur12/-/assets/121914919/367b1a2f-9117-4979-81f8-03a48d6dbf6a)
+- 체크박스 선택한 항목 엑셀 저장 가능

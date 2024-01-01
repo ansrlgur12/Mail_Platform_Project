@@ -146,12 +146,12 @@ const Main = () => {
     const closeFinModal = () => {
 
         if(finAddModalOpen){
-            setSettingClose(false);
+            setSettingClose(!settingClose);
             setClickedData({});
             setFinAddModalOpen(false);
         }
         else{
-            setSettingClose(false);
+            setSettingClose(!settingClose);
             setClickedData({});
             setFinUpdateModalOpen(false);
         }
@@ -175,6 +175,7 @@ const Main = () => {
         <div style={{display: settingClose ? "none" : "block"}}>
         <MainStyle>
             <table>
+                <tbody>
                 <tr>
                     <th>메일유형</th>
                     <td className='td'>
@@ -192,11 +193,11 @@ const Main = () => {
                 </tr>
                 <tr>
                     <th>메일 발송제목</th>
-                    <td colspan="3"><input className='input' type="text" value={title ? title : ""} onChange={onChangeTitle}/></td>
+                    <td colSpan="3"><input className='input' type="text" value={title ? title : ""} onChange={onChangeTitle}/></td>
                 </tr>
                 <tr>
                     <th>메일 내용</th>
-                    <td colspan="3">
+                    <td colSpan="3">
                         <Container>
                             <CKEditor
                                 editor={ ClassicEditor }
@@ -215,9 +216,9 @@ const Main = () => {
                 </tr>
                 <tr>
                     <th>변경 사유</th>
-                    <td colspan="3"><input className='input' type="text" value={reason ? reason : ""} onChange={onChangeReason} placeholder='argument 변경시 에러가 발생하오니 주의하시기 바랍니다.'/></td>
+                    <td colSpan="3"><input className='input' type="text" value={reason ? reason : ""} onChange={onChangeReason} placeholder='argument 변경시 에러가 발생하오니 주의하시기 바랍니다.'/></td>
                 </tr>
-                
+                </tbody>
             </table>
             <Preview onClick={onClickPriview}>
                 <button><FontAwesomeIcon icon={faNoteSticky} /> 미리보기</button>

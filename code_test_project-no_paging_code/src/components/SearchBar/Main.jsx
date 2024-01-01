@@ -16,10 +16,20 @@ const Main = () => {
     };
 
     const handleSearch = () => {
-        setSearchValue({
-            value: inputValue,
-            type: searchType,
-        });
+
+        if(inputValue.length === 0) {
+            setSearchValue([]);
+        }
+
+        else{
+            setSearchValue({
+                value: inputValue,
+                type: searchType,
+            });
+
+        }
+
+       
     };
 
     const handleReset = () => {

@@ -3,7 +3,7 @@
 ![banner](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZO4oxAl5U0zUm2xP3ErLQIZ2ccaYKtSJ-Dw&usqp=CAU)
 
 
-💡 화면 구현 및 기능 설명
+##💡 화면 구현 및 기능 설명
 
 ### 시작 화면
 ![image](https://github.com/ansrlgur12/-/assets/121914919/87915e71-fafb-4b81-9b3e-1254fa6e6b34)

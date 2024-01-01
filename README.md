@@ -36,6 +36,12 @@
 ### 컨텐츠 등록 및 수정
 - 리스트에서 등록 버튼 클릭 시 -> 컨텐츠 등록 창 나타남
 ![image](https://github.com/ansrlgur12/-/assets/121914919/7be4a9bd-06dc-4a0a-a158-da665afc21ea)
+- 내용 입력 후 등록 버튼 클릭 -> 모달 확인 창
+![image](https://github.com/ansrlgur12/-/assets/121914919/96111fcf-474a-46f3-a020-9587ce3b4b05)
+- 내용 미입력 시 버튼 비활성화
+![image](https://github.com/ansrlgur12/-/assets/121914919/6a5219be-c50b-455f-804c-e2903e9d409f)
+
+
 
 - 리스트에서 메일 제목 클릭 시 -> 컨텐츠 수정 창 나타남 (내용 불러옴)
 ![image](https://github.com/ansrlgur12/-/assets/121914919/cfeebf96-cc97-4f96-ae20-0cd1eb0ba25a)

@@ -43,7 +43,7 @@
 - 내용 입력 후 등록 버튼 클릭 -> 모달 확인 창
 ![image](https://github.com/ansrlgur12/-/assets/121914919/96111fcf-474a-46f3-a020-9587ce3b4b05)
 - 내용 미입력 시 버튼 비활성화
-![image](https://github.com/ansrlgur12/-/assets/121914919/6a5219be-c50b-455f-804c-e2903e9d409f)
+![image](https://github.com/ansrlgur12/-/assets/121914919/6a5219be-c50b-455f-804c-e2903e9d409f) ![image](https://github.com/ansrlgur12/-/assets/121914919/2b08be16-a093-409a-b02a-f5e91c103db2)
 
 
 ### 컨텐츠 수정
@@ -63,5 +63,7 @@
 ### 테이블 컬럼 리사이징
 - 헤더 라인 드래그 시 리사이징 가능
 ![image](https://github.com/ansrlgur12/-/assets/121914919/6b442c2b-446b-4a4c-a90c-1328707ea2ed)
+![image](https://github.com/ansrlgur12/-/assets/121914919/415a4a92-026d-4ab3-b2fb-bfc2efb1ed8c)
+
 
 
